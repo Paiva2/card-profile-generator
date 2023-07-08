@@ -1,5 +1,11 @@
-import { UserSquare } from "@phosphor-icons/react"
-import { HeaderContainer, HeaderWrapper, LogoWrapper } from "./styles"
+import { UserSquare, UserCircle, LinkSimple } from "@phosphor-icons/react"
+import {
+  CardDetailsWrapper,
+  HeaderContainer,
+  HeaderWrapper,
+  LogoWrapper,
+  NavigateSections,
+} from "./styles"
 
 const Header = () => {
   return (
@@ -7,16 +13,21 @@ const Header = () => {
       <HeaderWrapper>
         <LogoWrapper>
           <UserSquare size={30} weight="regular" />
-          <p>
-            profile <strong>generator</strong>
-          </p>
+          <p>profile generator</p>
         </LogoWrapper>
-        <div>
-          <p>Customize your Links</p>
-          <p>Customize your Profile</p>
-        </div>
+        <NavigateSections>
+          <button>
+            <LinkSimple size={16} weight="bold" />
+            Links
+          </button>
+          <button>
+            <UserCircle size={16} weight="bold" /> Profile
+          </button>
+        </NavigateSections>
 
-        <div>Card Details</div>
+        <CardDetailsWrapper>
+          <button>Card Details</button>
+        </CardDetailsWrapper>
       </HeaderWrapper>
     </HeaderContainer>
   )
