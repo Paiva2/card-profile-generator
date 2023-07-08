@@ -1,3 +1,4 @@
+import LinkCustomization from "../../components/LinkCustomization"
 import { HomeWrapper, MainContainer } from "./styles"
 
 const Home = () => {
@@ -5,7 +6,13 @@ const Home = () => {
     <MainContainer>
       <HomeWrapper>
         <div>aside</div>
-        <div>middle infos</div>
+        <div
+          style={{
+            backgroundColor: "#fff",
+          }}
+        >
+          <LinkCustomization />
+        </div>
       </HomeWrapper>
     </MainContainer>
   )
