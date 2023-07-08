@@ -1,43 +1,26 @@
-import { ArrowDown } from "@phosphor-icons/react"
-import { CustomizeLinksContainer } from "./styles"
+import NewCard from "./components/NewCard"
+import {
+  CustomizeHeader,
+  CustomizeLinksContainer,
+  NewLinkButton,
+  Text,
+} from "./styles"
 
 const LinkCustomization = () => {
   return (
     <CustomizeLinksContainer>
-      <div>
-        <p>Customize your Links</p>
-        <p>
-          Add/edit/remove links below and then share all your profiles with the
-          world!
-        </p>
-        <button>+ Add new link</button>
-      </div>
-
-      <div
-        style={{
-          background: "#FAFAFA",
-        }}
-      >
+      <CustomizeHeader>
         <div>
-          Link #1
-          <button>Remove</button>
+          <Text title>Customize your Links</Text>
+          <Text>
+            Add/edit/remove links below and then share all your profiles with the
+            world!
+          </Text>
         </div>
+        <NewLinkButton>+ Add new link</NewLinkButton>
+      </CustomizeHeader>
 
-        <div>
-          <label>
-            Platform
-            <div>
-              <button>
-                Github <ArrowDown color="#5492cd" size={44} weight="bold" />
-              </button>
-            </div>
-          </label>
-          <label>
-            Link
-            <input type="text" />
-          </label>
-        </div>
-      </div>
+      <NewCard />
     </CustomizeLinksContainer>
   )
 }

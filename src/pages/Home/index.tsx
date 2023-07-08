@@ -1,5 +1,5 @@
 import LinkCustomization from "../../components/LinkCustomization"
-import { HomeWrapper, MainContainer } from "./styles"
+import { HomeWrapper, MainContainer, SaveButton, SaveWrapper } from "./styles"
 
 const Home = () => {
   return (
@@ -8,10 +8,25 @@ const Home = () => {
         <div>aside</div>
         <div
           style={{
-            backgroundColor: "#fff",
+            width: "55%",
           }}
         >
-          <LinkCustomization />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+              gap: "10px",
+              padding: "25px",
+            }}
+          >
+            <LinkCustomization />
+          </div>
+
+          <SaveWrapper>
+            <SaveButton>Save</SaveButton>
+          </SaveWrapper>
         </div>
       </HomeWrapper>
     </MainContainer>

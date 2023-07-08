@@ -14,9 +14,8 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1.25rem 1.875rem;
-  box-shadow: 0px 4px 10px -4px rgba(153, 153, 153, 0.25);
 `
 
 export const LogoWrapper = styled.div`
@@ -56,7 +55,7 @@ export const NavigateSections = styled.nav`
 export const CardDetailsWrapper = styled.div`
   button {
     all: unset;
-    gap: 5px;
+    gap: 0.3125rem;
     display: flex;
     align-items: center;
     justify-content: center;
