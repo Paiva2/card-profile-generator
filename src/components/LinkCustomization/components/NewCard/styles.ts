@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 
 export const NewCardContainer = styled.div`
   background: #fafafa;
-  padding: 0.9375rem;
+  padding: 1.875rem 1.25rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -45,12 +45,16 @@ export const SocialWrapper = styled.div`
     gap: 0.3125rem;
     flex-direction: column;
     font-size: 0.75rem;
+    position: relative;
   }
 `
+interface DropdownListProps {
+  platformList: boolean
+}
 
-export const PlatformTrigger = styled.button`
+export const PlatformTrigger = styled.button<DropdownListProps>`
   all: unset;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 100%;
   display: flex;
@@ -58,8 +62,13 @@ export const PlatformTrigger = styled.button`
   justify-content: space-between;
   cursor: pointer;
   font-size: 0.9375rem;
-  font-weight: 500;
   overflow: hidden;
+  font-weight: 400;
+
+  .arrow-icon {
+    transition: 0.2s ease-in-out;
+    transform: ${(props) => (props.platformList ? "rotate(180deg)" : "rotate(0)")};
+  }
 
   span {
     display: flex;
@@ -68,6 +77,60 @@ export const PlatformTrigger = styled.button`
     width: 100%;
     padding: 0.625rem;
   }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+`
+
+export const DropdownList = styled.ul<DropdownListProps>`
+  opacity: ${(props) => (props.platformList ? 1 : 0)};
+  visibility: ${(props) => (props.platformList ? "visible" : "hidden")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-weight: 400;
+  transition: 0.2s ease-in-out;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0px;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: 0.2s;
+
+    span {
+      gap: 0.3125rem;
+      display: flex;
+      align-items: center;
+      width: 6.25rem;
+    }
+
+    &:hover {
+      background-color: #add0f1;
+      border-bottom: 1px solid transparent;
+    }
+  }
 `
 
 export const LinkWrapper = styled.div`
@@ -75,7 +138,7 @@ export const LinkWrapper = styled.div`
   align-items: center;
   gap: 0.3125rem;
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 100%;
   display: flex;

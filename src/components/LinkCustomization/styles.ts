@@ -14,7 +14,7 @@ export const CustomizeHeader = styled.div`
   gap: 1.875rem;
 `
 interface TitleProps {
-  title?: boolean
+  title?: string
 }
 
 export const Text = styled.p<TitleProps>`

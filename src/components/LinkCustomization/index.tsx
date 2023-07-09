@@ -11,7 +11,7 @@ const LinkCustomization = () => {
     <CustomizeLinksContainer>
       <CustomizeHeader>
         <div>
-          <Text title>Customize your Links</Text>
+          <Text title="true">Customize your Links</Text>
           <Text>
             Add/edit/remove links below and then share all your profiles with the
             world!

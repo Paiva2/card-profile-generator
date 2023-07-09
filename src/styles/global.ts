@@ -8,6 +8,21 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     background-color: #FAFAFA;
+
+  .root-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
     
     p {
       margin: 0;

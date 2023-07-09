@@ -1,18 +1,22 @@
 import { styled } from "styled-components"
 
 export const MainContainer = styled.main`
-  display: flex;
   width: 100%;
-  justify-content: center;
-  padding: 2rem 1.5625rem;
+  display: flex;
   align-items: center;
+  justify-content: center;
 `
 export const HomeWrapper = styled.div`
+  width: 70%;
   display: flex;
   align-items: center;
-  width: 70%;
   justify-content: space-between;
-  gap: 0.625rem;
+  border-radius: 10px;
+  gap: 1.25rem;
+`
+
+export const DemonstrationContainer = styled.div`
+  flex: 1;
 `
 
 export const SaveWrapper = styled.div`
@@ -42,4 +46,18 @@ export const SaveButton = styled.button`
   &:hover {
     background-color: #397ab8;
   }
+`
+
+export const RightContainer = styled.div`
+  width: 55%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+`
+
+export const CustomizationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.5625rem;
 `

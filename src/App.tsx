@@ -7,8 +7,10 @@ function App() {
   return (
     <Fragment>
       <GlobalStyle />
-      <Header />
-      <Home />
+      <div className="root-wrapper">
+        <Header />
+        <Home />
+      </div>
     </Fragment>
   )
 }

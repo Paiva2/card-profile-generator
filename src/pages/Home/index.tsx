@@ -1,33 +1,32 @@
+import DemoCard from "../../components/DemoCard"
 import LinkCustomization from "../../components/LinkCustomization"
-import { HomeWrapper, MainContainer, SaveButton, SaveWrapper } from "./styles"
+import {
+  CustomizationContainer,
+  DemonstrationContainer,
+  HomeWrapper,
+  MainContainer,
+  RightContainer,
+  SaveButton,
+  SaveWrapper,
+} from "./styles"
 
 const Home = () => {
   return (
     <MainContainer>
       <HomeWrapper>
-        <div>aside</div>
-        <div
-          style={{
-            width: "55%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              gap: "10px",
-              padding: "25px",
-            }}
-          >
+        <DemonstrationContainer>
+          <DemoCard />
+        </DemonstrationContainer>
+
+        <RightContainer>
+          <CustomizationContainer>
             <LinkCustomization />
-          </div>
+          </CustomizationContainer>
 
           <SaveWrapper>
             <SaveButton>Save</SaveButton>
           </SaveWrapper>
-        </div>
+        </RightContainer>
       </HomeWrapper>
     </MainContainer>
   )

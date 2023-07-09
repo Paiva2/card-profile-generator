@@ -12,10 +12,16 @@ export const HeaderWrapper = styled.div`
   width: 70%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #fff;
-  border-radius: 5px;
-  padding: 1.25rem 1.875rem;
+  border-radius: 10px;
+`
+
+export const NavigationHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
 `
 
 export const LogoWrapper = styled.div`
