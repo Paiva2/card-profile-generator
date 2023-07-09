@@ -49,7 +49,7 @@ export const SocialWrapper = styled.div`
   }
 `
 interface DropdownListProps {
-  platformList: boolean
+  platformlist: string | undefined
 }
 
 export const PlatformTrigger = styled.button<DropdownListProps>`
@@ -67,7 +67,7 @@ export const PlatformTrigger = styled.button<DropdownListProps>`
 
   .arrow-icon {
     transition: 0.2s ease-in-out;
-    transform: ${(props) => (props.platformList ? "rotate(180deg)" : "rotate(0)")};
+    transform: ${(props) => (props.platformlist ? "rotate(180deg)" : "rotate(0)")};
   }
 
   span {
@@ -86,8 +86,8 @@ export const PlatformTrigger = styled.button<DropdownListProps>`
 `
 
 export const DropdownList = styled.ul<DropdownListProps>`
-  opacity: ${(props) => (props.platformList ? 1 : 0)};
-  visibility: ${(props) => (props.platformList ? "visible" : "hidden")};
+  opacity: ${(props) => (props.platformlist ? 1 : 0)};
+  visibility: ${(props) => (props.platformlist ? "visible" : "hidden")};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +103,6 @@ export const DropdownList = styled.ul<DropdownListProps>`
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   font-weight: 400;
-  transition: 0.2s ease-in-out;
 
   li:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);

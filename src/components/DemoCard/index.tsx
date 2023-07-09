@@ -16,7 +16,7 @@ const DemoCard = () => {
             transform: "translate(-50%,-50%)",
             width: "550px",
           }}
-          src="../../../public/Phone-demo.svg"
+          src="./Phone-demo.svg"
         />
         <div
           style={{

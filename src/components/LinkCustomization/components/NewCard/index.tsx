@@ -1,13 +1,4 @@
-import {
-  CaretDown,
-  DotsSix,
-  LinkSimple,
-  GithubLogo,
-  YoutubeLogo,
-  FacebookLogo,
-  TwitterLogo,
-  LinkedinLogo,
-} from "@phosphor-icons/react"
+import { CaretDown, DotsSix, LinkSimple } from "@phosphor-icons/react"
 import {
   DropdownList,
   LinkWrapper,
@@ -17,73 +8,59 @@ import {
   SocialWrapper,
 } from "./styles"
 import { useState, useRef, useEffect } from "react"
-
-interface PlatformSchema {
-  id: number
-  platform: string
-  prefix: string
-  icon: React.ReactNode
+import { PlatformSchema } from "../../../../../types"
+import { platformOptions } from "../../utils/platformOptionsSchemas"
+interface NewCardProps {
+  cardMedia: PlatformSchema
+  setPlatformsCards: React.Dispatch<React.SetStateAction<PlatformSchema[]>>
+  platformCards: PlatformSchema[]
 }
 
-const NewCard = () => {
+const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) => {
   const [openPlatformList, setOpenPlatformList] = useState(false)
-  const [selectedPlatform, setSelectedPlatform] = useState<PlatformSchema>({
-    id: 1,
-    platform: "Github",
-    prefix: "https://github.com/",
-    icon: <GithubLogo size={18} weight="fill" />,
-  })
+  const cardPosition = platformCards.indexOf(cardMedia) + 1
 
   const linkRef = useRef<HTMLInputElement>(null)
 
-  const platformOptions = [
-    {
-      id: 1,
-      platform: "Github",
-      prefix: "https://github.com/",
-      icon: <GithubLogo size={18} weight="fill" />,
-    },
-    {
-      id: 2,
-      platform: "Youtube",
-      prefix: "https://youtube.com/",
-      icon: <YoutubeLogo size={18} weight="fill" />,
-    },
-    {
-      id: 3,
-      platform: "Linkedin",
-      prefix: "https://www.linkedin.com/in/",
-      icon: <LinkedinLogo size={18} weight="fill" />,
-    },
-    {
-      id: 4,
-      platform: "Facebook",
-      prefix: "https://www.facebook.com/",
-      icon: <FacebookLogo size={18} weight="fill" />,
-    },
-    {
-      id: 5,
-      platform: "Twitter",
-      prefix: "https://www.twitter.com/",
-      icon: <TwitterLogo size={18} weight="fill" />,
-    },
-  ]
+  const handleSetPlatform = (socialMediaSelected: PlatformSchema) => {
+    const editedCard = {
+      ...cardMedia,
+      platform: socialMediaSelected.platform,
+      prefix: socialMediaSelected.prefix,
+      icon: socialMediaSelected.icon,
+      socialMediaId: socialMediaSelected.socialMediaId,
+    }
 
-  const handleSetPlatform = (platform: PlatformSchema) => {
-    setSelectedPlatform(platform)
+    const newCards = platformCards.map((cards) => {
+      if (cards.id === cardMedia.id) {
+        return editedCard
+      }
+
+      return cards
+    })
+
+    setPlatformsCards(newCards)
   }
 
   useEffect(() => {
     if (linkRef.current) {
-      linkRef.current.defaultValue = selectedPlatform.prefix
+      linkRef.current.defaultValue = cardMedia.prefix
     }
-  }, [selectedPlatform])
+  }, [cardMedia])
+
+  const alreadyExistedOptions: number[] = []
+
+  platformCards.forEach((cards) => alreadyExistedOptions.push(cards.socialMediaId))
+
+  const options = platformOptions.filter(
+    (options) => !alreadyExistedOptions.includes(options.socialMediaId)
+  )
 
   return (
     <NewCardContainer>
       <NewCardHeader>
         <span>
-          <DotsSix size={20} weight="bold" /> Link #1
+          <DotsSix size={20} weight="bold" /> Link #{cardPosition}
         </span>
         <button>Remove</button>
       </NewCardHeader>
@@ -92,12 +69,12 @@ const NewCard = () => {
         <label>
           Platform
           <PlatformTrigger
-            platformList={openPlatformList}
+            platformlist={openPlatformList ? "true" : undefined}
             onClick={() => setOpenPlatformList(!openPlatformList)}
           >
             <span>
               <div>
-                {selectedPlatform.icon} {selectedPlatform.platform}
+                {cardMedia.icon} {cardMedia.platform}
               </div>
               <CaretDown
                 color="#5492cd"
@@ -107,10 +84,13 @@ const NewCard = () => {
               />
             </span>
           </PlatformTrigger>
-          <DropdownList platformList={openPlatformList}>
-            {platformOptions.map((option) => {
+          <DropdownList platformlist={openPlatformList ? "true" : undefined}>
+            {options.map((option) => {
               return (
-                <li onClick={() => handleSetPlatform(option)} key={option.id}>
+                <li
+                  onClick={() => handleSetPlatform(option)}
+                  key={option.socialMediaId}
+                >
                   <span>
                     {option.icon} {option.platform}
                   </span>

@@ -17,6 +17,7 @@ export const HomeWrapper = styled.div`
 
 export const DemonstrationContainer = styled.div`
   flex: 1;
+  align-self: flex-start;
 `
 
 export const SaveWrapper = styled.div`
@@ -53,6 +54,7 @@ export const RightContainer = styled.div`
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
+  align-self: start;
 `
 
 export const CustomizationContainer = styled.div`

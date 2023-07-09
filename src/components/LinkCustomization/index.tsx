@@ -1,3 +1,4 @@
+import { useState } from "react"
 import NewCard from "./components/NewCard"
 import {
   CustomizeHeader,
@@ -5,8 +6,30 @@ import {
   NewLinkButton,
   Text,
 } from "./styles"
+import { PlatformSchema } from "../../../types"
+import { v4 as uuidv4 } from "uuid"
+import { platformOptions } from "./utils/platformOptionsSchemas"
 
 const LinkCustomization = () => {
+  const [optionIndexToControl, setOptionIndexToControl] = useState(1)
+
+  const newLinkSchema = {
+    id: String(uuidv4()),
+    ...platformOptions[optionIndexToControl],
+  }
+
+  const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([
+    platformOptions[0],
+  ])
+
+  const newLink = () => {
+    if (platformCards.length === 5) return
+
+    setPlatformsCards((oldVal) => [...oldVal, newLinkSchema])
+
+    setOptionIndexToControl((oldValue) => oldValue + 1)
+  }
+
   return (
     <CustomizeLinksContainer>
       <CustomizeHeader>
@@ -17,10 +40,19 @@ const LinkCustomization = () => {
             world!
           </Text>
         </div>
-        <NewLinkButton>+ Add new link</NewLinkButton>
+        <NewLinkButton onClick={newLink}>+ Add new link</NewLinkButton>
       </CustomizeHeader>
 
-      <NewCard />
+      {platformCards.map((cardMedia) => {
+        return (
+          <NewCard
+            key={cardMedia.socialMediaId}
+            cardMedia={cardMedia}
+            setPlatformsCards={setPlatformsCards}
+            platformCards={platformCards}
+          />
+        )
+      })}
     </CustomizeLinksContainer>
   )
 }
