@@ -1,19 +1,21 @@
-import { Fragment, useState } from "react"
+import { Fragment, useContext, useState, useRef } from "react"
 import NewCard from "./components/NewCard"
 import {
+  CustomizationWrapper,
   CustomizeHeader,
   CustomizeLinksContainer,
   NewLinkButton,
+  SaveButton,
+  SaveWrapper,
   Text,
 } from "./styles"
-import { PlatformSchema } from "../../../types"
 import { v4 as uuidv4 } from "uuid"
 import { platformOptions } from "./utils/platformOptionsSchemas"
+import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 
 const LinkCustomization = () => {
-  const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([
-    { ...platformOptions[0], id: String(uuidv4()) },
-  ])
+  const { platformCards, setPlatformsCards } = useContext(GlobalContext)
+  const [informations, setInformations] = useState({})
 
   const handleNewLink = () => {
     if (platformCards.length === 5) return
@@ -28,34 +30,46 @@ const LinkCustomization = () => {
 
     setPlatformsCards((oldValue) => [
       ...oldValue,
-      { ...newPlatformLink!, id: String(uuidv4()) },
+      { link: newPlatformLink?.prefix, id: String(uuidv4()), ...newPlatformLink! },
     ])
+  }
+
+  const saveCards = () => {
+    /*     setInformations({
+      linkCards: platformCards,
+    }) */
   }
 
   return (
     <CustomizeLinksContainer>
-      <CustomizeHeader>
-        <div>
-          <Text title="true">Customize your Links</Text>
-          <Text>
-            Add/edit/remove links below and then share all your profiles with the
-            world!
-          </Text>
-        </div>
-        <NewLinkButton onClick={handleNewLink}>+ Add new link</NewLinkButton>
-      </CustomizeHeader>
+      <CustomizationWrapper>
+        <CustomizeHeader>
+          <div>
+            <Text title="true">Customize your Links</Text>
+            <Text>
+              Add/edit/remove links below and then share all your profiles with the
+              world!
+            </Text>
+          </div>
+          <NewLinkButton onClick={handleNewLink}>+ Add new link</NewLinkButton>
+        </CustomizeHeader>
 
-      {platformCards.map((cardMedia) => {
-        return (
-          <Fragment key={cardMedia.id}>
-            <NewCard
-              cardMedia={cardMedia}
-              setPlatformsCards={setPlatformsCards}
-              platformCards={platformCards}
-            />
-          </Fragment>
-        )
-      })}
+        {platformCards.map((cardMedia) => {
+          return (
+            <Fragment key={cardMedia.id}>
+              <NewCard
+                cardMedia={cardMedia}
+                setPlatformsCards={setPlatformsCards}
+                platformCards={platformCards}
+              />
+            </Fragment>
+          )
+        })}
+      </CustomizationWrapper>
+
+      <SaveWrapper>
+        <SaveButton onClick={saveCards}>Save</SaveButton>
+      </SaveWrapper>
     </CustomizeLinksContainer>
   )
 }

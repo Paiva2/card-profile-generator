@@ -2,16 +2,19 @@ import { Fragment } from "react"
 import Header from "./components/Header"
 import Home from "./pages/Home"
 import { GlobalStyle } from "./styles/global"
+import GlobalStorage from "./context/globalContext/GlobalStorage"
 
 function App() {
   return (
-    <Fragment>
-      <GlobalStyle />
-      <div className="root-wrapper">
-        <Header />
-        <Home />
-      </div>
-    </Fragment>
+    <GlobalStorage>
+      <Fragment>
+        <GlobalStyle />
+        <div className="root-wrapper">
+          <Header />
+          <Home />
+        </div>
+      </Fragment>
+    </GlobalStorage>
   )
 }
 

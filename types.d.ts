@@ -6,4 +6,5 @@ export interface PlatformSchema {
   platform: string
   prefix: string
   icon: ReactNode
+  link: string
 }

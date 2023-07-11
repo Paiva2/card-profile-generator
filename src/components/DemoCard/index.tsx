@@ -1,6 +1,10 @@
+import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import { DemoCardContainer } from "./styles"
+import { useContext } from "react"
 
 const DemoCard = () => {
+  const a = useContext(GlobalContext)
+
   return (
     <DemoCardContainer>
       <div

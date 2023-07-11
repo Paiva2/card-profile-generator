@@ -6,8 +6,6 @@ import {
   HomeWrapper,
   MainContainer,
   RightContainer,
-  SaveButton,
-  SaveWrapper,
 } from "./styles"
 
 const Home = () => {
@@ -22,10 +20,6 @@ const Home = () => {
           <CustomizationContainer>
             <LinkCustomization />
           </CustomizationContainer>
-
-          <SaveWrapper>
-            <SaveButton>Save</SaveButton>
-          </SaveWrapper>
         </RightContainer>
       </HomeWrapper>
     </MainContainer>

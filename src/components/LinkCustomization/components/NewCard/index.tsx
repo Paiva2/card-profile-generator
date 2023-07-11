@@ -7,7 +7,7 @@ import {
   PlatformTrigger,
   SocialWrapper,
 } from "./styles"
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { PlatformSchema } from "../../../../../types"
 import { platformOptions } from "../../utils/platformOptionsSchemas"
 interface NewCardProps {
@@ -18,9 +18,8 @@ interface NewCardProps {
 
 const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) => {
   const [openPlatformList, setOpenPlatformList] = useState(false)
+  const [linkValue, setLinkValue] = useState("")
   const cardPosition = platformCards.indexOf(cardMedia) + 1
-
-  const linkRef = useRef<HTMLInputElement>(null)
 
   const handleSetPlatform = (socialMediaSelected: PlatformSchema) => {
     const editedCard = {
@@ -43,18 +42,38 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
   }
 
   useEffect(() => {
-    if (linkRef.current) {
-      linkRef.current.defaultValue = cardMedia.prefix
-    }
+    setLinkValue(cardMedia.prefix)
   }, [cardMedia])
 
-  const alreadyExistedOptions: number[] = []
+  useEffect(() => {
+    updateCardLinkValue()
+  }, [linkValue])
 
-  platformCards.forEach((cards) => alreadyExistedOptions.push(cards.socialMediaId))
+  const updateCardLinkValue = () => {
+    const newCardWithLinkChanges = platformCards.map((cards) => {
+      if (cards.id === cardMedia.id) {
+        cards.link = linkValue
+      }
 
-  const options = platformOptions.filter(
-    (options) => !alreadyExistedOptions.includes(options.socialMediaId)
-  )
+      return cards
+    })
+
+    setPlatformsCards(newCardWithLinkChanges)
+  }
+
+  const hideOptionsIfAlreadyExistsOnCards = () => {
+    const alreadyExistedOptions: number[] = []
+
+    platformCards.forEach((cards) => alreadyExistedOptions.push(cards.socialMediaId))
+
+    const options = platformOptions.filter(
+      (options) => !alreadyExistedOptions.includes(options.socialMediaId)
+    )
+
+    return options
+  }
+
+  const platformOptionsFiltered = hideOptionsIfAlreadyExistsOnCards()
 
   const handleRemoveCard = (cardId: string | undefined) => {
     if (platformCards.length === 1) return
@@ -93,7 +112,7 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
             </span>
           </PlatformTrigger>
           <DropdownList platformlist={openPlatformList ? "true" : undefined}>
-            {options.map((option) => {
+            {platformOptionsFiltered.map((option) => {
               return (
                 <li
                   onClick={() => handleSetPlatform(option)}
@@ -112,8 +131,10 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
           <LinkWrapper>
             <LinkSimple size={16} weight="bold" />
             <input
-              onChange={() => console.log(linkRef?.current?.value)}
-              ref={linkRef}
+              onChange={(e) => {
+                setLinkValue(e.target.value)
+              }}
+              value={linkValue}
               type="text"
             />
           </LinkWrapper>
