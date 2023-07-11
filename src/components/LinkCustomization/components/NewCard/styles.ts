@@ -127,7 +127,12 @@ export const DropdownList = styled.ul<DropdownListProps>`
 
     &:hover {
       background-color: #add0f1;
-      border-bottom: 1px solid transparent;
+      border-color: transparent;
+    }
+
+    &:hover:last-child {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
   }
 `
@@ -145,7 +150,7 @@ export const LinkWrapper = styled.div`
   overflow: hidden;
 
   svg {
-    padding-left: 0.3125rem;
+    padding-left: 0.625rem;
   }
 
   input {

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import NewCard from "./components/NewCard"
 import {
   CustomizeHeader,
@@ -11,23 +11,25 @@ import { v4 as uuidv4 } from "uuid"
 import { platformOptions } from "./utils/platformOptionsSchemas"
 
 const LinkCustomization = () => {
-  const [optionIndexToControl, setOptionIndexToControl] = useState(1)
-
-  const newLinkSchema = {
-    id: String(uuidv4()),
-    ...platformOptions[optionIndexToControl],
-  }
-
   const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([
-    platformOptions[0],
+    { ...platformOptions[0], id: String(uuidv4()) },
   ])
 
-  const newLink = () => {
+  const handleNewLink = () => {
     if (platformCards.length === 5) return
 
-    setPlatformsCards((oldVal) => [...oldVal, newLinkSchema])
+    const getPlatformsAlreadySelected = platformCards.map((card) => {
+      return card.platform
+    })
 
-    setOptionIndexToControl((oldValue) => oldValue + 1)
+    const newPlatformLink = platformOptions.find(
+      (option) => !getPlatformsAlreadySelected.includes(option.platform)
+    )
+
+    setPlatformsCards((oldValue) => [
+      ...oldValue,
+      { ...newPlatformLink!, id: String(uuidv4()) },
+    ])
   }
 
   return (
@@ -40,17 +42,18 @@ const LinkCustomization = () => {
             world!
           </Text>
         </div>
-        <NewLinkButton onClick={newLink}>+ Add new link</NewLinkButton>
+        <NewLinkButton onClick={handleNewLink}>+ Add new link</NewLinkButton>
       </CustomizeHeader>
 
       {platformCards.map((cardMedia) => {
         return (
-          <NewCard
-            key={cardMedia.socialMediaId}
-            cardMedia={cardMedia}
-            setPlatformsCards={setPlatformsCards}
-            platformCards={platformCards}
-          />
+          <Fragment key={cardMedia.id}>
+            <NewCard
+              cardMedia={cardMedia}
+              setPlatformsCards={setPlatformsCards}
+              platformCards={platformCards}
+            />
+          </Fragment>
         )
       })}
     </CustomizeLinksContainer>

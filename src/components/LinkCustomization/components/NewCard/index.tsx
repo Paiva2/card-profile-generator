@@ -56,13 +56,21 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
     (options) => !alreadyExistedOptions.includes(options.socialMediaId)
   )
 
+  const handleRemoveCard = (cardId: string | undefined) => {
+    if (platformCards.length === 1) return
+
+    const filteredCardsList = platformCards.filter((cards) => cards.id !== cardId)
+
+    setPlatformsCards(filteredCardsList)
+  }
+
   return (
     <NewCardContainer>
       <NewCardHeader>
         <span>
           <DotsSix size={20} weight="bold" /> Link #{cardPosition}
         </span>
-        <button>Remove</button>
+        <button onClick={() => handleRemoveCard(cardMedia.id)}>Remove</button>
       </NewCardHeader>
 
       <SocialWrapper>
