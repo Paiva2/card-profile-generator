@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState, useRef } from "react"
+import { Fragment, useContext, useState } from "react"
 import NewCard from "./components/NewCard"
 import {
   CustomizationWrapper,

@@ -7,7 +7,12 @@ interface Props {
   children: React.ReactNode
 }
 
-export const GlobalContext = createContext<any>({} as any)
+interface GlobalContextProps {
+  platformCards: PlatformSchema[]
+  setPlatformsCards: React.Dispatch<React.SetStateAction<PlatformSchema[]>>
+}
+
+export const GlobalContext = createContext<GlobalContextProps>({} as any)
 
 const GlobalStorage = ({ children }: Props) => {
   const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([

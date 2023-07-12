@@ -22,7 +22,7 @@ export const DemonstrationContainer = styled.div`
 export const RightContainer = styled.div`
   width: 55%;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   align-self: start;
 `

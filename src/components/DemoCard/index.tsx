@@ -1,43 +1,50 @@
+import { CaretRight } from "@phosphor-icons/react"
 import { GlobalContext } from "../../context/globalContext/GlobalStorage"
-import { DemoCardContainer } from "./styles"
+import {
+  DemoCardContainer,
+  DemoCardWrapper,
+  ImageAndCards,
+  PlatformCardsContainer,
+  PlatformNameWrapper,
+  ProfileImageWrapper,
+  SocialMediaCard,
+  UserInformationsWrapper,
+} from "./styles"
 import { useContext } from "react"
+import PhoneIcon from "../../icons/PhoneIcon"
 
 const DemoCard = () => {
-  const a = useContext(GlobalContext)
+  const { platformCards } = useContext(GlobalContext)
 
   return (
     <DemoCardContainer>
-      <div
-        style={{
-          height: "100%",
-        }}
-      >
-        <img
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%,-50%)",
-            width: "550px",
-          }}
-          src="./Phone-demo.svg"
-        />
-        <div
-          style={{
-            zIndex: 100,
-            display: "flex",
-            position: "relative",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            flexDirection: "column",
-          }}
-        >
-          <div>Github {"->"}</div>
-          <div>Youtube {"->"}</div>
-          <div>Linkedin {"->"}</div>
-        </div>
-      </div>
+      <DemoCardWrapper>
+        <ImageAndCards>
+          <PhoneIcon />
+          <UserInformationsWrapper>
+            <div>
+              <ProfileImageWrapper>
+                <img src="https://i.postimg.cc/D02wXtMy/F0-R-Lpn-WYAEn5y7.jpg" />
+              </ProfileImageWrapper>
+            </div>
+            <PlatformCardsContainer>
+              {platformCards.map((card) => {
+                return (
+                  <SocialMediaCard brand={card.platform} href={card.link}>
+                    <PlatformNameWrapper>
+                      <div>
+                        <span>{card.icon}</span>
+                        <span>{card.platform}</span>
+                      </div>
+                      <CaretRight size={15} weight="fill" />
+                    </PlatformNameWrapper>
+                  </SocialMediaCard>
+                )
+              })}
+            </PlatformCardsContainer>
+          </UserInformationsWrapper>
+        </ImageAndCards>
+      </DemoCardWrapper>
     </DemoCardContainer>
   )
 }

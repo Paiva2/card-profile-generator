@@ -6,6 +6,7 @@ export const CustomizeLinksContainer = styled.div`
   justify-content: center;
   width: 100%;
   gap: 1.25rem;
+  height: 600px;
 `
 
 export const CustomizeHeader = styled.div`
@@ -81,4 +82,23 @@ export const CustomizationWrapper = styled.div`
   flex-direction: column;
   padding: 1.5625rem;
   gap: 1.875rem;
+  height: 30rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fafafa;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #5b5a5a;
+  }
 `
