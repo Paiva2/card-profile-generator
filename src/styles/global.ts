@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     gap: 1.25rem;
     width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
   }
 
   ul {

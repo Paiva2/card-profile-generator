@@ -10,13 +10,20 @@ import {
 import { useState, useEffect } from "react"
 import { PlatformSchema } from "../../../../../types"
 import { platformOptions } from "../../utils/platformOptionsSchemas"
+import { DraggableProvided } from "@hello-pangea/dnd"
 interface NewCardProps {
   cardMedia: PlatformSchema
   setPlatformsCards: React.Dispatch<React.SetStateAction<PlatformSchema[]>>
   platformCards: PlatformSchema[]
+  provided: DraggableProvided
 }
 
-const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) => {
+const NewCard = ({
+  cardMedia,
+  setPlatformsCards,
+  platformCards,
+  provided: dndProvider,
+}: NewCardProps) => {
   const [openPlatformList, setOpenPlatformList] = useState(false)
   const [linkValue, setLinkValue] = useState("")
   const cardPosition = platformCards.indexOf(cardMedia) + 1
@@ -83,11 +90,20 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
     setPlatformsCards(filteredCardsList)
   }
 
+  const handleOpenPlatformsModal = () => {
+    if (platformOptionsFiltered.length < 1) return
+
+    setOpenPlatformList(!openPlatformList)
+  }
+
   return (
-    <NewCardContainer>
+    <NewCardContainer ref={dndProvider.innerRef} {...dndProvider.draggableProps}>
       <NewCardHeader>
         <span>
-          <DotsSix size={20} weight="bold" /> Link #{cardPosition}
+          <span {...dndProvider.dragHandleProps}>
+            <DotsSix size={20} weight="bold" />
+          </span>
+          Link #{cardPosition}
         </span>
         <button onClick={() => handleRemoveCard(cardMedia.id)}>Remove</button>
       </NewCardHeader>
@@ -97,18 +113,21 @@ const NewCard = ({ cardMedia, setPlatformsCards, platformCards }: NewCardProps) 
           Platform
           <PlatformTrigger
             platformlist={openPlatformList ? "true" : undefined}
-            onClick={() => setOpenPlatformList(!openPlatformList)}
+            onClick={handleOpenPlatformsModal}
           >
             <span>
               <div>
                 {cardMedia.icon} {cardMedia.platform}
               </div>
-              <CaretDown
-                color="#5492cd"
-                size={18}
-                weight="bold"
-                className="arrow-icon"
-              />
+
+              {platformOptionsFiltered.length > 0 && (
+                <CaretDown
+                  color="#5492cd"
+                  size={18}
+                  weight="bold"
+                  className="arrow-icon"
+                />
+              )}
             </span>
           </PlatformTrigger>
           <DropdownList platformlist={openPlatformList ? "true" : undefined}>

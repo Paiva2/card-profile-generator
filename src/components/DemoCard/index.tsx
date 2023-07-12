@@ -3,11 +3,13 @@ import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import {
   DemoCardContainer,
   DemoCardWrapper,
+  IdentificationWrapper,
   ImageAndCards,
   PlatformCardsContainer,
   PlatformNameWrapper,
   ProfileImageWrapper,
   SocialMediaCard,
+  TopcardSection,
   UserInformationsWrapper,
 } from "./styles"
 import { useContext } from "react"
@@ -22,11 +24,16 @@ const DemoCard = () => {
         <ImageAndCards>
           <PhoneIcon />
           <UserInformationsWrapper>
-            <div>
+            <TopcardSection>
               <ProfileImageWrapper>
                 <img src="https://i.postimg.cc/D02wXtMy/F0-R-Lpn-WYAEn5y7.jpg" />
               </ProfileImageWrapper>
-            </div>
+
+              <IdentificationWrapper>
+                <p>Paiva</p>
+                <p>joao.paiva@hotmail.com</p>
+              </IdentificationWrapper>
+            </TopcardSection>
             <PlatformCardsContainer>
               {platformCards.map((card) => {
                 return (
