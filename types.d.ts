@@ -3,9 +3,21 @@ import { ReactNode } from "react"
 export interface GlobalContextProps {
   platformCards: PlatformSchema[]
   activeSection: string
+  profilePic: string
+  userProfileInformations: {
+    firstName: string
+    lastName: string
+    email: string
+  }
+  setUserProfileInformations: React.Dispatch<
+    React.SetStateAction<{
+      firstName: string
+      lastName: string
+      email: string
+    }>
+  >
   setPlatformsCards: React.Dispatch<React.SetStateAction<PlatformSchema[]>>
   setActiveSection: React.Dispatch<React.SetStateAction<string>>
-  profilePic: string
   setProfilePic: React.Dispatch<React.SetStateAction<string>>
 }
 

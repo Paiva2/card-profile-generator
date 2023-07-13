@@ -16,7 +16,8 @@ import { useContext } from "react"
 import PhoneIcon from "../../icons/PhoneIcon"
 
 const DemoCard = () => {
-  const { platformCards, profilePic } = useContext(GlobalContext)
+  const { platformCards, profilePic, userProfileInformations } =
+    useContext(GlobalContext)
 
   return (
     <DemoCardContainer>
@@ -30,8 +31,11 @@ const DemoCard = () => {
               </ProfileImageWrapper>
 
               <IdentificationWrapper>
-                <p>Paiva</p>
-                <p>joao.paiva@hotmail.com</p>
+                <p>
+                  {userProfileInformations.firstName}{" "}
+                  {userProfileInformations.lastName}
+                </p>
+                <p>{userProfileInformations.email}</p>
               </IdentificationWrapper>
             </TopcardSection>
             <PlatformCardsContainer>

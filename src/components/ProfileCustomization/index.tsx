@@ -3,23 +3,27 @@ import {
   CustomizationWrapper,
   CustomizeHeader,
   CustomizeLinksContainer,
-  NewCardContainer,
+  InputsWrapper,
+  ProfileImageContainer,
   Text,
   UpdateProfileMiniModalWrapper,
   UpdateProfileText,
   UpdateProfileWrapper,
+  UserInformationsContainer,
 } from "./styles"
 import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import { ImageSquare } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
 const ProfileCustomization = () => {
-  const { profilePic, setProfilePic } = useContext(GlobalContext)
+  const { profilePic, setProfilePic, setUserProfileInformations } =
+    useContext(GlobalContext)
+
   const [getProfilePicFromInput, setGetProfilePicFromInput] = useState<
     Blob | MediaSource
   >()
 
-  const maxAllowedSizeImage = 5 * 1024 * 1024
+  const maxAllowedSizeImage = 5 * 1024 * 1024 // 5mb
 
   useEffect(() => {
     if (getProfilePicFromInput) {
@@ -43,6 +47,13 @@ const ProfileCustomization = () => {
     setGetProfilePicFromInput(files[0])
   }
 
+  const handleUpdateInputValue = (inputToUpdate: string, value: string) => {
+    setUserProfileInformations((oldValue) => ({
+      ...oldValue,
+      [inputToUpdate]: value,
+    }))
+  }
+
   return (
     <CustomizeLinksContainer>
       <CustomizationWrapper>
@@ -52,7 +63,7 @@ const ProfileCustomization = () => {
             <Text>Change your personal informations below!</Text>
           </div>
 
-          <NewCardContainer>
+          <ProfileImageContainer>
             <UpdateProfileWrapper>
               <div>
                 <UpdateProfileText>Profile picture</UpdateProfileText>
@@ -77,7 +88,46 @@ const ProfileCustomization = () => {
                 <p>Use PNG, JPG JPEG images with a maximum of 5MB.</p>
               </UpdateProfileMiniModalWrapper>
             </UpdateProfileWrapper>
-          </NewCardContainer>
+          </ProfileImageContainer>
+
+          <UserInformationsContainer>
+            <InputsWrapper>
+              <label>
+                <UpdateProfileText>First name*</UpdateProfileText>
+                <input
+                  onChange={(e) =>
+                    handleUpdateInputValue("firstName", e.target.value)
+                  }
+                  placeholder="John"
+                  max={20}
+                  type="text"
+                  required
+                />
+              </label>
+              <label>
+                <UpdateProfileText>Last name*</UpdateProfileText>
+                <input
+                  onChange={(e) =>
+                    handleUpdateInputValue("lastName", e.target.value)
+                  }
+                  placeholder="Doe"
+                  max={20}
+                  type="text"
+                  required
+                />
+              </label>
+              <label>
+                <UpdateProfileText>E-mail*</UpdateProfileText>
+                <input
+                  onChange={(e) => handleUpdateInputValue("email", e.target.value)}
+                  placeholder="email@email.com"
+                  max={30}
+                  type="email"
+                  required
+                />
+              </label>
+            </InputsWrapper>
+          </UserInformationsContainer>
         </CustomizeHeader>
       </CustomizationWrapper>
     </CustomizeLinksContainer>

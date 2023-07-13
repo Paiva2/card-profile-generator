@@ -18,15 +18,22 @@ const GlobalStorage = ({ children }: Props) => {
 
   const [activeSection, setActiveSection] = useState("")
   const [profilePic, setProfilePic] = useState(defaultProfilePicture)
+  const [userProfileInformations, setUserProfileInformations] = useState({
+    firstName: "John",
+    lastName: "Doe",
+    email: "johndoe@default.com",
+  })
 
   return (
     <GlobalContext.Provider
       value={{
         platformCards,
         activeSection,
+        profilePic,
+        userProfileInformations,
+        setUserProfileInformations,
         setPlatformsCards,
         setActiveSection,
-        profilePic,
         setProfilePic,
       }}
     >

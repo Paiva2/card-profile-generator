@@ -53,7 +53,7 @@ export const NavigateSections = styled.nav`
     transition: 0.2s ease-in-out;
 
     &.active {
-      background-color: rgba(173, 208, 241, 0.7);
+      background-color: rgba(173, 208, 241, 300);
       color: #ffff;
     }
   }

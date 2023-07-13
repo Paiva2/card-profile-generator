@@ -5,13 +5,12 @@ export const CustomizeLinksContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: 1.25rem;
 `
 
 export const CustomizeHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.875rem;
+  gap: 15px;
 `
 interface TitleProps {
   istitle?: string
@@ -24,7 +23,7 @@ export const Text = styled.p<TitleProps>`
   margin-bottom: 0.625rem;
 `
 
-export const NewCardContainer = styled.div`
+export const ProfileImageContainer = styled.div`
   background: #fafafa;
   padding: 0.9375rem;
   border-radius: 5px;
@@ -129,5 +128,43 @@ export const UpdateProfileMiniModalWrapper = styled.div`
     width: 70%;
     font-size: 12px;
     color: #717171;
+  }
+`
+
+export const UserInformationsContainer = styled.div`
+  background: #fafafa;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+`
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.9375rem;
+  gap: 20px;
+
+  label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    input {
+      all: unset;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 8px 0px;
+      padding-left: 10px;
+      cursor: text;
+      width: 65%;
+      font-size: 1rem;
+
+      &:focus {
+        border: 2px solid rgba(173, 208, 241, 300);
+      }
+    }
   }
 `
