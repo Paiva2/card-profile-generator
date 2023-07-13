@@ -30,6 +30,11 @@ export const NewCardHeader = styled.div`
     all: unset;
     font-weight: 400;
     cursor: pointer;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      color: #000;
+    }
   }
 `
 

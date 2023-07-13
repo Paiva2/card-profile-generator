@@ -6,8 +6,6 @@ import {
   CustomizeLinksContainer,
   LinkCardsList,
   NewLinkButton,
-  SaveButton,
-  SaveWrapper,
   Text,
 } from "./styles"
 import { v4 as uuidv4 } from "uuid"
@@ -100,10 +98,6 @@ const LinkCustomization = () => {
           </Droppable>
         </DragDropContext>
       </CustomizationWrapper>
-
-      <SaveWrapper>
-        <SaveButton onClick={saveCards}>Save</SaveButton>
-      </SaveWrapper>
     </CustomizeLinksContainer>
   )
 }

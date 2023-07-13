@@ -16,7 +16,7 @@ import { useContext } from "react"
 import PhoneIcon from "../../icons/PhoneIcon"
 
 const DemoCard = () => {
-  const { platformCards } = useContext(GlobalContext)
+  const { platformCards, profilePic } = useContext(GlobalContext)
 
   return (
     <DemoCardContainer>
@@ -26,7 +26,7 @@ const DemoCard = () => {
           <UserInformationsWrapper>
             <TopcardSection>
               <ProfileImageWrapper>
-                <img src="https://i.postimg.cc/D02wXtMy/F0-R-Lpn-WYAEn5y7.jpg" />
+                <img alt="User Profile Picture" src={profilePic} />
               </ProfileImageWrapper>
 
               <IdentificationWrapper>
@@ -37,7 +37,11 @@ const DemoCard = () => {
             <PlatformCardsContainer>
               {platformCards.map((card) => {
                 return (
-                  <SocialMediaCard brand={card.platform} href={card.link}>
+                  <SocialMediaCard
+                    key={card.id}
+                    brand={card.platform}
+                    href={card.link}
+                  >
                     <PlatformNameWrapper>
                       <div>
                         <span>{card.icon}</span>

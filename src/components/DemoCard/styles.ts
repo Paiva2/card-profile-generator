@@ -29,7 +29,7 @@ export const ProfileImageWrapper = styled.div`
   height: 100px;
   border-radius: 100%;
   overflow: hidden;
-  border: 3px solid #5492cd;
+  border: 5px solid #5492cd;
   display: flex;
   align-items: center;
   justify-content: center;

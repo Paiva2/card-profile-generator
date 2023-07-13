@@ -50,11 +50,11 @@ export const NavigateSections = styled.nav`
     color: #7c7c7c;
     padding: 0.625rem 1.25rem;
     border-radius: 5px;
+    transition: 0.2s ease-in-out;
 
     &.active {
-      background-color: #add0f1;
-      font-weight: 600;
-      color: #fff;
+      background-color: rgba(173, 208, 241, 0.7);
+      color: #ffff;
     }
   }
 `
