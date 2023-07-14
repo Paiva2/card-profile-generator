@@ -13,15 +13,16 @@ import {
 } from "./styles"
 import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import { ImageSquare } from "@phosphor-icons/react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 const ProfileCustomization = () => {
-  const { profilePic, setProfilePic, setUserProfileInformations } =
-    useContext(GlobalContext)
-
-  const [getProfilePicFromInput, setGetProfilePicFromInput] = useState<
-    Blob | MediaSource
-  >()
+  const {
+    profilePic,
+    setProfilePic,
+    setUserProfileInformations,
+    getProfilePicFromInput,
+    setGetProfilePicFromInput,
+  } = useContext(GlobalContext)
 
   const maxAllowedSizeImage = 5 * 1024 * 1024 // 5mb
 
@@ -35,7 +36,7 @@ const ProfileCustomization = () => {
     return () => URL.revokeObjectURL(profilePic)
   }, [getProfilePicFromInput])
 
-  const handleSetProfilePicture = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetProfilePicture = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = (e.target as HTMLInputElement).files
 
     if (!files) return

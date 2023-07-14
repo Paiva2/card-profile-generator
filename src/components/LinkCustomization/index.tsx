@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import NewCard from "./components/NewCard"
 import {
   CustomizationWrapper,
@@ -15,29 +15,26 @@ import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea
 
 const LinkCustomization = () => {
   const { platformCards, setPlatformsCards } = useContext(GlobalContext)
-  const [informations, setInformations] = useState({})
 
   const handleNewLink = () => {
     if (platformCards.length === 5) return
 
-    const getPlatformsAlreadySelected = platformCards.map((card) => {
-      return card.platform
-    })
+    const getPlatformsAlreadySelected =
+      Array.isArray(platformCards) &&
+      platformCards.map((card) => {
+        return card.platform
+      })
 
     const newPlatformLink = platformOptions.find(
-      (option) => !getPlatformsAlreadySelected.includes(option.platform)
+      (option) =>
+        Array.isArray(getPlatformsAlreadySelected) &&
+        !getPlatformsAlreadySelected.includes(option.platform)
     )
 
     setPlatformsCards((oldValue) => [
       ...oldValue,
       { link: newPlatformLink?.prefix, id: String(uuidv4()), ...newPlatformLink! },
     ])
-  }
-
-  const saveCards = () => {
-    /*     setInformations({
-      linkCards: platformCards,
-    }) */
   }
 
   function handleOnDragEnd(cardToDrag: DropResult) {
@@ -73,25 +70,26 @@ const LinkCustomization = () => {
                 ref={provided.innerRef}
                 key="platforms"
               >
-                {platformCards.map((cardMedia, index) => {
-                  return (
-                    <Draggable
-                      key={cardMedia.id}
-                      draggableId={cardMedia.socialMediaId.toString()}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <NewCard
-                          key={cardMedia.id}
-                          provided={provided}
-                          cardMedia={cardMedia}
-                          setPlatformsCards={setPlatformsCards}
-                          platformCards={platformCards}
-                        />
-                      )}
-                    </Draggable>
-                  )
-                })}
+                {Array.isArray(platformCards) &&
+                  platformCards.map((cardMedia, index) => {
+                    return (
+                      <Draggable
+                        key={cardMedia.id}
+                        draggableId={cardMedia.socialMediaId.toString()}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <NewCard
+                            key={cardMedia.id}
+                            provided={provided}
+                            cardMedia={cardMedia}
+                            setPlatformsCards={setPlatformsCards}
+                            platformCards={platformCards}
+                          />
+                        )}
+                      </Draggable>
+                    )
+                  })}
                 {provided.placeholder}
               </LinkCardsList>
             )}

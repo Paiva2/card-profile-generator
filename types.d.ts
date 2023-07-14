@@ -9,12 +9,16 @@ export interface GlobalContextProps {
     lastName: string
     email: string
   }
+  getProfilePicFromInput: Blob | MediaSource | undefined
   setUserProfileInformations: React.Dispatch<
     React.SetStateAction<{
       firstName: string
       lastName: string
       email: string
     }>
+  >
+  setGetProfilePicFromInput: React.Dispatch<
+    React.SetStateAction<Blob | MediaSource | undefined>
   >
   setPlatformsCards: React.Dispatch<React.SetStateAction<PlatformSchema[]>>
   setActiveSection: React.Dispatch<React.SetStateAction<string>>
@@ -26,6 +30,11 @@ export interface PlatformSchema {
   socialMediaId: number
   platform: string
   prefix: string
-  icon: ReactNode
   link?: string
+}
+
+interface PersonalProfileSchema {
+  firstName: string
+  lastName: string
+  email: string
 }

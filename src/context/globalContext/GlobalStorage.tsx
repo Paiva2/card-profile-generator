@@ -1,7 +1,12 @@
-import { createContext, useState } from "react"
-import { GlobalContextProps, PlatformSchema } from "../../../types"
+import { createContext, useLayoutEffect, useState } from "react"
+import {
+  GlobalContextProps,
+  PersonalProfileSchema,
+  PlatformSchema,
+} from "../../../types"
 import { platformOptions } from "../../components/LinkCustomization/utils/platformOptionsSchemas"
 import { v4 as uuidv4 } from "uuid"
+import { useLocalStorage } from "../../hooks/useLocalStorage"
 
 interface Props {
   children: React.ReactNode
@@ -9,9 +14,23 @@ interface Props {
 export const GlobalContext = createContext<GlobalContextProps>({} as any)
 
 const GlobalStorage = ({ children }: Props) => {
-  const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([
-    { id: String(uuidv4()), ...platformOptions[0], link: platformOptions[0].prefix },
-  ])
+  const socialMediaCards = useLocalStorage("profileCard")
+  const profilePictureStorage = useLocalStorage("profilePic")
+  const personalProfileInformations = useLocalStorage("personalInformations")
+
+  const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([])
+
+  const [getProfilePicFromInput, setGetProfilePicFromInput] = useState<
+    Blob | MediaSource
+  >()
+
+  const defaultSchemaCard = [
+    {
+      id: String(uuidv4()),
+      ...platformOptions[0],
+      link: platformOptions[0].prefix,
+    },
+  ]
 
   const defaultProfilePicture =
     "https://soccerpointeclaire.com/wp-content/uploads/2021/06/default-profile-pic-e1513291410505.jpg"
@@ -24,6 +43,22 @@ const GlobalStorage = ({ children }: Props) => {
     email: "johndoe@default.com",
   })
 
+  useLayoutEffect(() => {
+    if (!socialMediaCards) return
+
+    setPlatformsCards((socialMediaCards as PlatformSchema[]) ?? defaultSchemaCard)
+
+    if (profilePictureStorage) {
+      setProfilePic(profilePictureStorage as string)
+    }
+
+    if (personalProfileInformations) {
+      setUserProfileInformations(
+        personalProfileInformations as PersonalProfileSchema
+      )
+    }
+  }, [socialMediaCards])
+
   return (
     <GlobalContext.Provider
       value={{
@@ -31,6 +66,8 @@ const GlobalStorage = ({ children }: Props) => {
         activeSection,
         profilePic,
         userProfileInformations,
+        getProfilePicFromInput,
+        setGetProfilePicFromInput,
         setUserProfileInformations,
         setPlatformsCards,
         setActiveSection,

@@ -126,7 +126,7 @@ export const UpdateProfileMiniModalWrapper = styled.div`
 
   p {
     width: 70%;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #717171;
   }
 `
@@ -161,6 +161,11 @@ export const InputsWrapper = styled.div`
       cursor: text;
       width: 65%;
       font-size: 1rem;
+
+      &::placeholder {
+        color: #c4c4c4;
+        font-size: 0.875rem;
+      }
 
       &:focus {
         border: 2px solid rgba(173, 208, 241, 300);

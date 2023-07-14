@@ -62,3 +62,25 @@ export const SaveButton = styled.button`
     background-color: #397ab8;
   }
 `
+interface SavedToastInterface {
+  opentoast: boolean
+}
+
+export const SavedToast = styled.div<SavedToastInterface>`
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  opacity: ${(props) => (props.opentoast ? 1 : 0)};
+  bottom: ${(props) => (props.opentoast ? "100px" : "40px")};
+  visibility: ${(props) => (props.opentoast ? "visible" : "hidden")};
+  transform: ${(props) =>
+    props.opentoast ? "transform: translateY(0%)" : "translateY(35px)"};
+`
+
+export const Toast = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.9375rem 1.125rem;
+  color: #fff;
+  border-radius: 8px;
+  user-select: none;
+  font-size: 0.875rem;
+`

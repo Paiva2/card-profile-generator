@@ -9,7 +9,7 @@ import {
 } from "./styles"
 import { useState, useEffect } from "react"
 import { PlatformSchema } from "../../../../../types"
-import { platformOptions } from "../../utils/platformOptionsSchemas"
+import { platformIcons, platformOptions } from "../../utils/platformOptionsSchemas"
 import { DraggableProvided } from "@hello-pangea/dnd"
 interface NewCardProps {
   cardMedia: PlatformSchema
@@ -33,7 +33,6 @@ const NewCard = ({
       ...cardMedia,
       platform: socialMediaSelected.platform,
       prefix: socialMediaSelected.prefix,
-      icon: socialMediaSelected.icon,
       socialMediaId: socialMediaSelected.socialMediaId,
     }
 
@@ -117,7 +116,8 @@ const NewCard = ({
           >
             <span>
               <div>
-                {cardMedia.icon} {cardMedia.platform}
+                {platformIcons[cardMedia.platform as keyof typeof platformIcons]}
+                {cardMedia.platform}
               </div>
 
               {platformOptionsFiltered.length > 0 && (
@@ -138,7 +138,8 @@ const NewCard = ({
                   key={option.socialMediaId}
                 >
                   <span>
-                    {option.icon} {option.platform}
+                    {platformIcons[option.platform as keyof typeof platformIcons]}
+                    {option.platform}
                   </span>
                 </li>
               )
