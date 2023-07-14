@@ -18,13 +18,13 @@ import { useEffect } from "react"
 const ProfileCustomization = () => {
   const {
     profilePic,
+    getProfilePicFromInput,
     setProfilePic,
     setUserProfileInformations,
-    getProfilePicFromInput,
     setGetProfilePicFromInput,
   } = useContext(GlobalContext)
 
-  const maxAllowedSizeImage = 5 * 1024 * 1024 // 5mb
+  const maxAllowedSizeImage = 5 * 1024 * 1024 // 5MB
 
   useEffect(() => {
     if (getProfilePicFromInput) {

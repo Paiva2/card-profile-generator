@@ -24,6 +24,8 @@ const GlobalStorage = ({ children }: Props) => {
     Blob | MediaSource
   >()
 
+  const [openCardDetailsModal, setOpenCardDetailsModal] = useState(false)
+
   const defaultSchemaCard = [
     {
       id: String(uuidv4()),
@@ -67,6 +69,8 @@ const GlobalStorage = ({ children }: Props) => {
         profilePic,
         userProfileInformations,
         getProfilePicFromInput,
+        openCardDetailsModal,
+        setOpenCardDetailsModal,
         setGetProfilePicFromInput,
         setUserProfileInformations,
         setPlatformsCards,

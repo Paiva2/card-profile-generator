@@ -84,3 +84,15 @@ export const Toast = styled.div`
   user-select: none;
   font-size: 0.875rem;
 `
+
+export const Overlay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  top: 0;
+`

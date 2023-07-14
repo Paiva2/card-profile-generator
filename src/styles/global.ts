@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     background-color: #FAFAFA;
+    min-height: 100vh;
+    position: relative;
 
   .root-wrapper {
     display: flex;
@@ -18,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 100rem;
     margin: 0 auto;
+    height: 100%;
   }
 
   ul {

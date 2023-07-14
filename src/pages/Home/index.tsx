@@ -1,5 +1,6 @@
 import DemoCard from "../../components/DemoCard"
 import LinkCustomization from "../../components/LinkCustomization"
+import ModalOverlay from "../../components/ModalOverlay"
 import ProfileCustomization from "../../components/ProfileCustomization"
 import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import {
@@ -7,6 +8,7 @@ import {
   DemonstrationContainer,
   HomeWrapper,
   MainContainer,
+  Overlay,
   RightContainer,
   SaveButton,
   SaveWrapper,
@@ -67,24 +69,29 @@ const Home = () => {
   }
 
   return (
-    <MainContainer>
-      <HomeWrapper>
-        <DemonstrationContainer>
-          <DemoCard />
-        </DemonstrationContainer>
-        <RightContainer>
-          <CustomizationContainer>{renderActivePage()}</CustomizationContainer>
-          <SaveWrapper>
-            <SaveButton onClick={handleSaveInformations}>Save</SaveButton>
-          </SaveWrapper>
-        </RightContainer>
-      </HomeWrapper>
-      <SavedToast opentoast={openSavedToast}>
-        <Toast>
-          <p>Profile informations saved successfully!</p>
-        </Toast>
-      </SavedToast>
-    </MainContainer>
+    <>
+      <MainContainer>
+        <Overlay>
+          <ModalOverlay />
+        </Overlay>
+        <HomeWrapper>
+          <DemonstrationContainer>
+            <DemoCard />
+          </DemonstrationContainer>
+          <RightContainer>
+            <CustomizationContainer>{renderActivePage()}</CustomizationContainer>
+            <SaveWrapper>
+              <SaveButton onClick={handleSaveInformations}>Save</SaveButton>
+            </SaveWrapper>
+          </RightContainer>
+        </HomeWrapper>
+        <SavedToast opentoast={openSavedToast}>
+          <Toast>
+            <p>Profile informations saved successfully!</p>
+          </Toast>
+        </SavedToast>
+      </MainContainer>
+    </>
   )
 }
 

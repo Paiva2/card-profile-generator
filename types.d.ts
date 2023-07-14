@@ -10,6 +10,8 @@ export interface GlobalContextProps {
     email: string
   }
   getProfilePicFromInput: Blob | MediaSource | undefined
+  openCardDetailsModal: boolean
+  setOpenCardDetailsModal: React.Dispatch<React.SetStateAction<boolean>>
   setUserProfileInformations: React.Dispatch<
     React.SetStateAction<{
       firstName: string
