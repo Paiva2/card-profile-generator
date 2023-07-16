@@ -54,13 +54,10 @@ const LinkCustomization = () => {
       <CustomizationWrapper>
         <CustomizeHeader>
           <div>
-            <Text istitle="true">Customize your Links</Text>
-            <Text>
-              Add/edit/remove links below and then share all your profiles with the
-              world!
-            </Text>
+            <Text istitle="true">Create your links</Text>
+            <Text>Add/edit/remove links below and then share it all!</Text>
           </div>
-          <NewLinkButton onClick={handleNewLink}>+ Add new link</NewLinkButton>
+          <NewLinkButton onClick={handleNewLink}>+ New link</NewLinkButton>
         </CustomizeHeader>
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="platforms">

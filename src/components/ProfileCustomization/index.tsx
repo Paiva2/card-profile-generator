@@ -87,7 +87,7 @@ const ProfileCustomization = () => {
                   />
                 </label>
 
-                <p>Use PNG, JPG JPEG images with a maximum of 5MB.</p>
+                <p>Use PNG, JPG or JPEG images with a maximum of 5MB.</p>
               </UpdateProfileMiniModalWrapper>
             </UpdateProfileWrapper>
           </ProfileImageContainer>

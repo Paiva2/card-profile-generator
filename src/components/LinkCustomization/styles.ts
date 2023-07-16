@@ -37,12 +37,12 @@ export const NewLinkButton = styled.button`
   cursor: pointer;
   font-weight: 500;
   color: #7c7c7c;
-  border: 2px solid #537595;
+  border: 1px solid #5492cd;
   transition: 0.3s ease-in-out;
 
   &:hover {
     background-color: #5492cd;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     color: #fff;
   }
 `

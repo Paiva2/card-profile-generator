@@ -25,6 +25,7 @@ export const HomeWrapper = styled.div`
 export const DemonstrationContainer = styled.div`
   flex: 1;
   align-self: flex-start;
+  box-shadow: 2px 9px 28px -8px rgba(0, 0, 0, 0.09);
 
   @media (max-width: 58.75rem) {
     width: 100%;
@@ -37,6 +38,7 @@ export const RightContainer = styled.div`
   overflow: hidden;
   align-self: start;
   height: 37.5rem;
+  box-shadow: 2px 9px 28px -8px rgba(0, 0, 0, 0.09);
 
   @media (max-width: 58.75rem) {
     width: 100%;

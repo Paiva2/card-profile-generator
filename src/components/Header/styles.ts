@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
+  box-shadow: 2px 9px 28px -8px rgba(0, 0, 0, 0.09);
 
   @media (max-width: 58.75rem) {
     width: 90%;
@@ -66,6 +67,10 @@ export const NavigateSections = styled.nav`
     padding: 0.625rem 1.25rem;
     border-radius: 5px;
     transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: rgba(173, 208, 241, 300);
+    }
 
     &.active {
       background-color: rgba(173, 208, 241, 300);
