@@ -86,7 +86,7 @@ export const SocialMediaCard = styled.a<SocialMediaCardBrand>`
   color: #f1f1f1;
   border-radius: 8px;
   cursor: pointer;
-  width: 85%;
+  width: 80%;
   padding: 0.9375rem 1.125rem;
   font-size: 0.75rem;
   align-items: center;

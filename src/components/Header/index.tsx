@@ -1,4 +1,4 @@
-import { UserSquare, UserCircle, LinkSimple, Eye } from "@phosphor-icons/react"
+import { UserFocus, UserCircle, LinkSimple, Eye } from "@phosphor-icons/react"
 import {
   CardDetailsWrapper,
   HeaderContainer,
@@ -44,7 +44,7 @@ const Header = () => {
       <HeaderWrapper>
         <NavigationHeader>
           <LogoWrapper>
-            <UserSquare size={30} weight="regular" />
+            <UserFocus size={30} weight="regular" />
             <p>profile generator</p>
           </LogoWrapper>
 
@@ -72,7 +72,7 @@ const Header = () => {
               onClick={() => setOpenCardDetails(!openCardDetails)}
             >
               {isMobile ? (
-                <Eye size={25} key="eye-icon" color="#5492cd" weight="bold" />
+                <Eye size={25} color="#5492cd" weight="bold" />
               ) : (
                 "Card Details"
               )}
