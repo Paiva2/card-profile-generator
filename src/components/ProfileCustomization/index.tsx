@@ -22,6 +22,7 @@ const ProfileCustomization = () => {
     setProfilePic,
     setUserProfileInformations,
     setGetProfilePicFromInput,
+    userProfileInformations,
   } = useContext(GlobalContext)
 
   const maxAllowedSizeImage = 5 * 1024 * 1024 // 5MB
@@ -96,34 +97,37 @@ const ProfileCustomization = () => {
               <label>
                 <UpdateProfileText>First name*</UpdateProfileText>
                 <input
+                  defaultValue={userProfileInformations.firstName}
                   onChange={(e) =>
                     handleUpdateInputValue("firstName", e.target.value)
                   }
                   placeholder="John"
-                  max={20}
                   type="text"
+                  maxLength={19}
                   required
                 />
               </label>
               <label>
                 <UpdateProfileText>Last name*</UpdateProfileText>
                 <input
+                  defaultValue={userProfileInformations.lastName}
                   onChange={(e) =>
                     handleUpdateInputValue("lastName", e.target.value)
                   }
                   placeholder="Doe"
-                  max={20}
                   type="text"
+                  maxLength={16}
                   required
                 />
               </label>
               <label>
                 <UpdateProfileText>E-mail*</UpdateProfileText>
                 <input
+                  defaultValue={userProfileInformations.email}
                   onChange={(e) => handleUpdateInputValue("email", e.target.value)}
                   placeholder="email@email.com"
-                  max={30}
                   type="email"
+                  maxLength={65}
                   required
                 />
               </label>

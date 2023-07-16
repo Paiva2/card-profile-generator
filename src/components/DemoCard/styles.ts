@@ -15,18 +15,19 @@ export const DemoCardContainer = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
     user-select: none;
     height: 95%;
+    width: 100%;
   }
 `
 export const DemoCardWrapper = styled.div`
+  width: 100%;
   height: 100%;
 `
 
 export const ProfileImageWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: 100%;
   overflow: hidden;
   border: 5px solid #5492cd;
@@ -52,9 +53,13 @@ export const UserInformationsWrapper = styled.div`
   z-index: 10;
   position: relative;
   gap: 0.3125rem;
+  max-width: 19.5rem;
 `
 
 export const ImageAndCards = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 100%;
@@ -102,9 +107,9 @@ export const PlatformCardsContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 19.375rem;
+  min-height: 17.8125rem;
   width: 80%;
-  gap: 0.625rem;
+  gap: 0.3125rem;
 `
 export const PlatformNameWrapper = styled.div`
   display: flex;
@@ -128,8 +133,8 @@ export const TopcardSection = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 0.625rem;
-  width: 80%;
   word-break: break-all;
+  width: 75%;
 `
 
 export const IdentificationWrapper = styled.div`
@@ -137,7 +142,7 @@ export const IdentificationWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
 
   p:first-child {
     color: #414549;
@@ -147,8 +152,7 @@ export const IdentificationWrapper = styled.div`
 
   p:last-child {
     color: #717171;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
-    overflow: auto;
   }
 `

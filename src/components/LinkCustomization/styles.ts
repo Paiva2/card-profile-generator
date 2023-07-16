@@ -60,7 +60,7 @@ export const CustomizationWrapper = styled.div`
   }
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 0.5rem;
   }
 
   &::-webkit-scrollbar-track {
@@ -74,6 +74,10 @@ export const CustomizationWrapper = styled.div`
 
   &::-webkit-scrollbar-thumb:hover {
     background: #5b5a5a;
+  }
+
+  @media (max-width: 58.75rem) {
+    overflow: unset;
   }
 `
 export const LinkCardsList = styled.ul`

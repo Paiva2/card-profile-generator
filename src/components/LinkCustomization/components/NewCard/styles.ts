@@ -16,13 +16,6 @@ export const NewCardHeader = styled.div`
   font-weight: 600;
   font-size: 0.9375rem;
 
-  .draggableIcon {
-    svg {
-      width: 35px;
-      height: 35px;
-    }
-  }
-
   span {
     display: flex;
     align-items: center;
@@ -41,6 +34,15 @@ export const NewCardHeader = styled.div`
 
     &:hover {
       color: #000;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .draggableIcon {
+      svg {
+        width: 2.1875rem;
+        height: 2.1875rem;
+      }
     }
   }
 `
@@ -148,9 +150,9 @@ export const DropdownList = styled.ul<DropdownListProps>`
     }
   }
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     li {
-      padding: 20px 0px;
+      padding: 1.25rem 0px;
     }
   }
 `

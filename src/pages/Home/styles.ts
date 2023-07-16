@@ -15,7 +15,7 @@ export const HomeWrapper = styled.div`
   border-radius: 10px;
   gap: 1.25rem;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 90%;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +26,7 @@ export const DemonstrationContainer = styled.div`
   flex: 1;
   align-self: flex-start;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 100%;
   }
 `
@@ -36,9 +36,9 @@ export const RightContainer = styled.div`
   border-radius: 5px;
   overflow: hidden;
   align-self: start;
-  height: 600px;
+  height: 37.5rem;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 100%;
     flex-direction: column;
     justify-content: center;
@@ -80,9 +80,9 @@ export const SaveButton = styled.button`
     background-color: #397ab8;
   }
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 70%;
-    padding: 15px 2.5rem;
+    padding: 0.9375rem 2.5rem;
   }
 `
 interface SavedToastInterface {
@@ -93,7 +93,7 @@ export const SavedToast = styled.div<SavedToastInterface>`
   position: absolute;
   transition: 0.3s ease-in-out;
   opacity: ${(props) => (props.opentoast ? 1 : 0)};
-  bottom: ${(props) => (props.opentoast ? "100px" : "40px")};
+  bottom: ${(props) => (props.opentoast ? "6.25rem" : "2.5rem")};
   visibility: ${(props) => (props.opentoast ? "visible" : "hidden")};
   transform: ${(props) =>
     props.opentoast ? "transform: translateY(0%)" : "translateY(35px)"};

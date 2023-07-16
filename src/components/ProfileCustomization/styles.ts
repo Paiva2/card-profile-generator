@@ -10,7 +10,7 @@ export const CustomizeLinksContainer = styled.div`
 export const CustomizeHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
 `
 interface TitleProps {
   istitle?: string
@@ -30,6 +30,11 @@ export const ProfileImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
+
+  @media (max-width: 58.75rem) {
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const CustomizationWrapper = styled.div`
@@ -41,7 +46,7 @@ export const CustomizationWrapper = styled.div`
   overflow-y: auto;
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 0.5rem;
   }
 
   &::-webkit-scrollbar-track {
@@ -63,6 +68,12 @@ export const UpdateProfileWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   align-items: center;
+
+  @media (max-width: 58.75rem) {
+    flex-direction: column;
+    gap: 0.9375rem;
+    justify-content: center;
+  }
 `
 
 export const UpdateProfileText = styled.p`
@@ -76,6 +87,15 @@ export const UpdateProfileMiniModalWrapper = styled.div`
   align-self: flex-end;
   gap: 1.25rem;
   width: 65%;
+
+  @media (max-width: 58.75rem) {
+    width: 100%;
+    flex-direction: column;
+
+    label {
+      width: 100%;
+    }
+  }
 
   label {
     width: 16.25rem;
@@ -144,7 +164,7 @@ export const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.9375rem;
-  gap: 20px;
+  gap: 1.25rem;
 
   label {
     align-items: center;
@@ -156,8 +176,8 @@ export const InputsWrapper = styled.div`
       all: unset;
       border: 2px solid rgba(0, 0, 0, 0.2);
       border-radius: 5px;
-      padding: 8px 0px;
-      padding-left: 10px;
+      padding: 0.5rem 0px;
+      padding-left: 0.625rem;
       cursor: text;
       width: 65%;
       font-size: 1rem;

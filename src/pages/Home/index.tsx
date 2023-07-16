@@ -1,3 +1,4 @@
+import Swal from "sweetalert2"
 import DemoCard from "../../components/DemoCard"
 import LinkCustomization from "../../components/LinkCustomization"
 import ModalOverlay from "../../components/ModalOverlay"
@@ -40,6 +41,18 @@ const Home = () => {
   }
 
   const handleSaveInformations = () => {
+    const { email, firstName, lastName } = userProfileInformations
+
+    if (!email || !firstName || !lastName) {
+      return Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Fill all profile fields!",
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    }
+
     setOpenSavedToast(true)
 
     if (openSavedToast) return
@@ -71,34 +84,32 @@ const Home = () => {
   }
 
   return (
-    <>
-      <MainContainer>
-        <Overlay
-          onClick={() => {
-            setOpenCardDetails(!openCardDetails)
-          }}
-          overlay={openCardDetails}
-        >
-          <ModalOverlay />
-        </Overlay>
-        <HomeWrapper>
-          <DemonstrationContainer>
-            <DemoCard />
-          </DemonstrationContainer>
-          <RightContainer>
-            <CustomizationContainer>{renderActivePage()}</CustomizationContainer>
-            <SaveWrapper>
-              <SaveButton onClick={handleSaveInformations}>Save</SaveButton>
-            </SaveWrapper>
-          </RightContainer>
-        </HomeWrapper>
-        <SavedToast opentoast={openSavedToast}>
-          <Toast>
-            <p>Profile informations saved successfully!</p>
-          </Toast>
-        </SavedToast>
-      </MainContainer>
-    </>
+    <MainContainer>
+      <Overlay
+        onClick={() => {
+          setOpenCardDetails(!openCardDetails)
+        }}
+        overlay={openCardDetails}
+      >
+        <ModalOverlay />
+      </Overlay>
+      <HomeWrapper>
+        <DemonstrationContainer>
+          <DemoCard />
+        </DemonstrationContainer>
+        <RightContainer>
+          <CustomizationContainer>{renderActivePage()}</CustomizationContainer>
+          <SaveWrapper>
+            <SaveButton onClick={handleSaveInformations}>Save</SaveButton>
+          </SaveWrapper>
+        </RightContainer>
+      </HomeWrapper>
+      <SavedToast opentoast={openSavedToast}>
+        <Toast>
+          <p>Profile informations saved successfully!</p>
+        </Toast>
+      </SavedToast>
+    </MainContainer>
   )
 }
 

@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.div`
   background-color: #fff;
   border-radius: 10px;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 90%;
   }
 `
@@ -25,7 +25,7 @@ export const NavigationHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  padding: 1.25rem;
 `
 
 export const LogoWrapper = styled.div`
@@ -37,10 +37,10 @@ export const LogoWrapper = styled.div`
   user-select: none;
   font-weight: 600;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     svg {
-      width: 30px;
-      height: 30px;
+      width: 1.875rem;
+      height: 1.875rem;
     }
 
     p {
@@ -72,7 +72,7 @@ export const NavigateSections = styled.nav`
       color: #ffff;
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 58.75rem) {
       button {
         padding: 0.5rem 1.25rem;
       }
@@ -82,8 +82,8 @@ export const NavigateSections = styled.nav`
       }
 
       svg {
-        width: 25px;
-        height: 25px;
+        width: 1.5625rem;
+        height: 1.5625rem;
       }
 
       span {
@@ -114,7 +114,7 @@ export const CardDetailsWrapper = styled.div`
       color: #fff;
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 58.75rem) {
       padding: 0.5rem 1.25rem;
     }
   }

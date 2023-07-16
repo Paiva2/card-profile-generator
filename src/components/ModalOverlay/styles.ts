@@ -8,9 +8,9 @@ export const Modal = styled.div`
   background: #fff;
   border-radius: 8px;
   padding: 0.9375rem;
-  width: 20%;
+  width: 30%;
 
-  @media (max-width: 940px) {
+  @media (max-width: 58.75rem) {
     width: 70%;
     height: auto;
   }
@@ -21,14 +21,14 @@ export const ModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
   padding: 1.875rem 1.875rem;
   position: relative;
 `
 
 export const ImgeWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: 100%;
   overflow: hidden;
   border: 5px solid #5492cd;
@@ -52,12 +52,13 @@ export const UserProfileInformations = styled.div`
   height: 100%;
   flex-direction: column;
   gap: 0.3125rem;
-
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  word-break: break-all;
+  max-height: 37.5rem;
 
   p:first-child {
     color: #414549;
@@ -86,12 +87,6 @@ export const UserSocialMediaCards = styled.div`
   font-size: 0.75rem;
   align-items: center;
   margin-top: 0.3125rem;
-  opacity: 0.8;
-  transition: 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 1;
-  }
 `
 export const CloseIcon = styled.div`
   position: absolute;
@@ -132,6 +127,12 @@ export const SocialCard = styled.a<SocialMediaCard>`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
 
   span {
     display: flex;

@@ -47,9 +47,11 @@ const GlobalStorage = ({ children }: Props) => {
   })
 
   useLayoutEffect(() => {
-    if (!socialMediaCards) return
-
-    setPlatformsCards((socialMediaCards as PlatformSchema[]) ?? defaultSchemaCard)
+    if (socialMediaCards) {
+      setPlatformsCards(socialMediaCards as PlatformSchema[])
+    } else {
+      setPlatformsCards(defaultSchemaCard)
+    }
 
     if (profilePictureStorage) {
       setProfilePic(profilePictureStorage as string)
