@@ -9,6 +9,11 @@ export const Modal = styled.div`
   border-radius: 8px;
   padding: 0.9375rem;
   width: 20%;
+
+  @media (max-width: 940px) {
+    width: 70%;
+    height: auto;
+  }
 `
 
 export const ModalWrapper = styled.div`

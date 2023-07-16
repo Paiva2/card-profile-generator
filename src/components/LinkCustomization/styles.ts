@@ -55,6 +55,10 @@ export const CustomizationWrapper = styled.div`
   height: 30rem;
   overflow-y: auto;
 
+  @media (max-width: 768px) {
+    height: auto;
+  }
+
   &::-webkit-scrollbar {
     width: 8px;
   }

@@ -22,7 +22,7 @@ const ModalOverlay = () => {
   } = useContext(GlobalContext)
 
   return (
-    <Modal>
+    <Modal onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
       <CloseIcon>
         <button type="button" onClick={() => setOpenCardDetails(!openCardDetails)}>
           <X size={30} weight="regular" />

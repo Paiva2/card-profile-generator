@@ -16,6 +16,13 @@ export const NewCardHeader = styled.div`
   font-weight: 600;
   font-size: 0.9375rem;
 
+  .draggableIcon {
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
   span {
     display: flex;
     align-items: center;
@@ -138,6 +145,12 @@ export const DropdownList = styled.ul<DropdownListProps>`
     &:hover:last-child {
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
+    }
+  }
+
+  @media (max-width: 940px) {
+    li {
+      padding: 20px 0px;
     }
   }
 `

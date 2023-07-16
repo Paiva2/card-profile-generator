@@ -14,6 +14,10 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
+
+  @media (max-width: 940px) {
+    width: 90%;
+  }
 `
 
 export const NavigationHeader = styled.div`
@@ -32,6 +36,17 @@ export const LogoWrapper = styled.div`
   cursor: pointer;
   user-select: none;
   font-weight: 600;
+
+  @media (max-width: 940px) {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    p {
+      display: none;
+    }
+  }
 `
 export const NavigateSections = styled.nav`
   display: flex;
@@ -56,6 +71,25 @@ export const NavigateSections = styled.nav`
       background-color: rgba(173, 208, 241, 300);
       color: #ffff;
     }
+
+    @media (max-width: 940px) {
+      button {
+        padding: 0.5rem 1.25rem;
+      }
+
+      &.active {
+        padding: 0.5rem 1.25rem;
+      }
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+
+      span {
+        display: none;
+      }
+    }
   }
 `
 export const CardDetailsWrapper = styled.div`
@@ -78,6 +112,10 @@ export const CardDetailsWrapper = styled.div`
       background-color: #5492cd;
       border: 1px solid transparent;
       color: #fff;
+    }
+
+    @media (max-width: 940px) {
+      padding: 0.5rem 1.25rem;
     }
   }
 `

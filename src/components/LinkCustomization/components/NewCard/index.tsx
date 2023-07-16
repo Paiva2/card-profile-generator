@@ -99,7 +99,7 @@ const NewCard = ({
     <NewCardContainer ref={dndProvider.innerRef} {...dndProvider.draggableProps}>
       <NewCardHeader>
         <span>
-          <span {...dndProvider.dragHandleProps}>
+          <span className="draggableIcon" {...dndProvider.dragHandleProps}>
             <DotsSix size={20} weight="bold" />
           </span>
           Link #{cardPosition}

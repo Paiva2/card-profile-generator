@@ -24,6 +24,7 @@ const Home = () => {
     getProfilePicFromInput,
     userProfileInformations,
     openCardDetails,
+    setOpenCardDetails,
   } = useContext(GlobalContext)
   const [openSavedToast, setOpenSavedToast] = useState(false)
 
@@ -72,7 +73,12 @@ const Home = () => {
   return (
     <>
       <MainContainer>
-        <Overlay overlay={openCardDetails}>
+        <Overlay
+          onClick={() => {
+            setOpenCardDetails(!openCardDetails)
+          }}
+          overlay={openCardDetails}
+        >
           <ModalOverlay />
         </Overlay>
         <HomeWrapper>

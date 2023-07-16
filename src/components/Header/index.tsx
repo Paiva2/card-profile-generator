@@ -1,4 +1,4 @@
-import { UserSquare, UserCircle, LinkSimple } from "@phosphor-icons/react"
+import { UserSquare, UserCircle, LinkSimple, Eye } from "@phosphor-icons/react"
 import {
   CardDetailsWrapper,
   HeaderContainer,
@@ -8,9 +8,23 @@ import {
   NavigationHeader,
 } from "./styles"
 import { GlobalContext } from "../../context/globalContext/GlobalStorage"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 940)
+
+  const handleWindowSizeChange = () => {
+    setIsMobile(window.innerWidth <= 940)
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange)
+
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange)
+    }
+  }, [])
+
   const { activeSection, openCardDetails, setOpenCardDetails, setActiveSection } =
     useContext(GlobalContext)
 
@@ -33,6 +47,7 @@ const Header = () => {
             <UserSquare size={30} weight="regular" />
             <p>profile generator</p>
           </LogoWrapper>
+
           <NavigateSections>
             {menuSections.map((section) => (
               <button
@@ -46,7 +61,7 @@ const Header = () => {
                 ) : (
                   <LinkSimple size={16} weight="bold" />
                 )}
-                {section.name}
+                <span>{section.name}</span>
               </button>
             ))}
           </NavigateSections>
@@ -56,7 +71,11 @@ const Header = () => {
               type="button"
               onClick={() => setOpenCardDetails(!openCardDetails)}
             >
-              Card Details
+              {isMobile ? (
+                <Eye size={25} key="eye-icon" color="#5492cd" weight="bold" />
+              ) : (
+                "Card Details"
+              )}
             </button>
           </CardDetailsWrapper>
         </NavigationHeader>

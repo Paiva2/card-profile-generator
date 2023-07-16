@@ -5,6 +5,7 @@ export const MainContainer = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
 `
 export const HomeWrapper = styled.div`
   width: 70%;
@@ -13,11 +14,21 @@ export const HomeWrapper = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   gap: 1.25rem;
+
+  @media (max-width: 940px) {
+    width: 90%;
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const DemonstrationContainer = styled.div`
   flex: 1;
   align-self: flex-start;
+
+  @media (max-width: 940px) {
+    width: 100%;
+  }
 `
 export const RightContainer = styled.div`
   width: 55%;
@@ -26,6 +37,13 @@ export const RightContainer = styled.div`
   overflow: hidden;
   align-self: start;
   height: 600px;
+
+  @media (max-width: 940px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
 `
 
 export const CustomizationContainer = styled.div`
@@ -37,7 +55,7 @@ export const CustomizationContainer = styled.div`
 export const SaveWrapper = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  padding: 15px 0px;
+  padding: 0.9375rem 0rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +78,11 @@ export const SaveButton = styled.button`
 
   &:hover {
     background-color: #397ab8;
+  }
+
+  @media (max-width: 940px) {
+    width: 70%;
+    padding: 15px 2.5rem;
   }
 `
 interface SavedToastInterface {
