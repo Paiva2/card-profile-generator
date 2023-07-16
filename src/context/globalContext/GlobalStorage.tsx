@@ -17,6 +17,7 @@ const GlobalStorage = ({ children }: Props) => {
   const socialMediaCards = useLocalStorage("profileCard")
   const profilePictureStorage = useLocalStorage("profilePic")
   const personalProfileInformations = useLocalStorage("personalInformations")
+  const [openCardDetails, setOpenCardDetails] = useState(false)
 
   const [platformCards, setPlatformsCards] = useState<Array<PlatformSchema>>([])
 
@@ -37,7 +38,7 @@ const GlobalStorage = ({ children }: Props) => {
   const defaultProfilePicture =
     "https://soccerpointeclaire.com/wp-content/uploads/2021/06/default-profile-pic-e1513291410505.jpg"
 
-  const [activeSection, setActiveSection] = useState("")
+  const [activeSection, setActiveSection] = useState("links")
   const [profilePic, setProfilePic] = useState(defaultProfilePicture)
   const [userProfileInformations, setUserProfileInformations] = useState({
     firstName: "John",
@@ -70,6 +71,8 @@ const GlobalStorage = ({ children }: Props) => {
         userProfileInformations,
         getProfilePicFromInput,
         openCardDetailsModal,
+        openCardDetails,
+        setOpenCardDetails,
         setOpenCardDetailsModal,
         setGetProfilePicFromInput,
         setUserProfileInformations,

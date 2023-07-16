@@ -13,13 +13,18 @@ import { platformIcons } from "../LinkCustomization/utils/platformOptionsSchemas
 import { CaretRight, X } from "@phosphor-icons/react"
 
 const ModalOverlay = () => {
-  const { platformCards, profilePic, userProfileInformations } =
-    useContext(GlobalContext)
+  const {
+    platformCards,
+    profilePic,
+    userProfileInformations,
+    setOpenCardDetails,
+    openCardDetails,
+  } = useContext(GlobalContext)
 
   return (
     <Modal>
       <CloseIcon>
-        <button type="button">
+        <button type="button" onClick={() => setOpenCardDetails(!openCardDetails)}>
           <X size={30} weight="regular" />
         </button>
       </CloseIcon>

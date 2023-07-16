@@ -85,14 +85,21 @@ export const Toast = styled.div`
   font-size: 0.875rem;
 `
 
-export const Overlay = styled.div`
+interface Overlay {
+  overlay: boolean
+}
+
+export const Overlay = styled.div<Overlay>`
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   top: 0;
+  transition: 0.2s ease-in-out;
+  opacity: ${(props) => (props.overlay ? "1" : "0")};
+  visibility: ${(props) => (props.overlay ? "visible" : "hidden")};
 `

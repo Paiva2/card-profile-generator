@@ -11,7 +11,8 @@ import { GlobalContext } from "../../context/globalContext/GlobalStorage"
 import { useContext } from "react"
 
 const Header = () => {
-  const { activeSection, setActiveSection } = useContext(GlobalContext)
+  const { activeSection, openCardDetails, setOpenCardDetails, setActiveSection } =
+    useContext(GlobalContext)
 
   const menuSections = [
     {
@@ -51,7 +52,12 @@ const Header = () => {
           </NavigateSections>
 
           <CardDetailsWrapper>
-            <button>Card Details</button>
+            <button
+              type="button"
+              onClick={() => setOpenCardDetails(!openCardDetails)}
+            >
+              Card Details
+            </button>
           </CardDetailsWrapper>
         </NavigationHeader>
       </HeaderWrapper>

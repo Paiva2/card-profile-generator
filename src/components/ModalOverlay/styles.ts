@@ -75,6 +75,8 @@ interface SocialMediaCard {
 export const UserSocialMediaCards = styled.div`
   display: flex;
   cursor: pointer;
+  flex-direction: column;
+  gap: 0.9375rem;
   width: 100%;
   font-size: 0.75rem;
   align-items: center;

@@ -11,6 +11,8 @@ export interface GlobalContextProps {
   }
   getProfilePicFromInput: Blob | MediaSource | undefined
   openCardDetailsModal: boolean
+  openCardDetails: boolean
+  setOpenCardDetails: React.Dispatch<React.SetStateAction<boolean>>
   setOpenCardDetailsModal: React.Dispatch<React.SetStateAction<boolean>>
   setUserProfileInformations: React.Dispatch<
     React.SetStateAction<{
