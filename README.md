@@ -4,7 +4,7 @@ This is a projet based on [Frontend Mentors](https://www.frontendmentor.io/chall
 
 ## [Live Demo](https://card-profile-generator.netlify.app/)
 
-## [Video demo](https://www.loom.com/share/99cddc9419d14b8fa2924e604aedbc6f?sid=84fbdc33-0753-4819-b7ac-5f9b7d5e3b4e)
+## [Video demo](https://imgur.com/a/mpZihQq)
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
 
