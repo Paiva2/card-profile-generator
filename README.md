@@ -1,6 +1,6 @@
 # Link-sharing app - recriation
 
-This is a projet based on [Frontend Mentors](https://frontendmentors.io) "Link-sharing app" challenge.
+This is a projet based on [Frontend Mentors](https://www.frontendmentor.io/challenges/linksharing-app-Fbt7yweGsT) "Link-sharing app" challenge.
 
 ## [Live Demo](https://card-profile-generator.netlify.app/)
 
